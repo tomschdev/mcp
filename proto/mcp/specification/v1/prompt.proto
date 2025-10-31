@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package mcp.tom.v1;
+
+import "mcp/specification/content.proto";
+
+// Prompt represents a templated message or workflow.
+message Prompt {
+  // Required. Unique identifier for the prompt.
+  string name = 1;
+
+  // Optional. Human-readable display name.
+  string title = 2;
+
+  // Optional. Description of the prompt's purpose.
+  string description = 3;
+
+  // Optional. List of arguments that can customize the prompt.
+  repeated PromptArgument arguments = 4;
+}
+
+// PromptArgument defines a parameter for customizing a prompt.
+message PromptArgument {
+  // Required. The name of the argument.
+  string name = 1;
+
+  // Optional. Description of what this argument represents.
+  string description = 2;
+
+  // Indicates whether this argument is required.
+  bool required = 3;
+}
+
+// PromptMessage represents a message in a prompt conversation.
+message PromptMessage {
+  // Role of the message sender.
+  enum Role {
+    ROLE_UNSPECIFIED = 0;
+    ROLE_USER = 1;
+    ROLE_ASSISTANT = 2;
+  }
+
+  // Required. The role of the message sender.
+  Role role = 1;
+
+  // Required. The content of the message. Can contain multiple content items.
+  repeated PromptContent content = 2;
+}
+
+// PromptContent represents different types of content in a prompt message.
+message PromptContent {
+  oneof content {
+    // Plain text content.
+    TextContent text = 1;
+
+    // Image content.
+    ImageContent image = 2;
+
+    // Audio content.
+    AudioContent audio = 3;
+
+    // Embedded resource.
+    EmbeddedResource resource = 4;
+  }
+}
+
+// ListPromptsRequest requests the list of available prompts.
+message ListPromptsRequest {
+  // Optional. Pagination cursor from a previous response.
+  string page_token = 1;
+
+  // Optional. Maximum number of prompts to return.
+  int32 page_size = 2;
+}
+
+// ListPromptsResponse contains the list of available prompts.
+message ListPromptsResponse {
+  // The list of prompts.
+  repeated Prompt prompts = 1;
+
+  // Optional. Token to retrieve the next page of results.
+  string next_page_token = 2;
+}
+
+// GetPromptRequest requests a specific prompt with argument values.
+message GetPromptRequest {
+  // Required. The name of the prompt to retrieve.
+  string name = 1;
+
+  // Optional. Values for the prompt's arguments as key-value pairs.
+  map<string, string> arguments = 2;
+}
+
+// GetPromptResponse contains the rendered prompt with messages.
+message GetPromptResponse {
+  // Optional. Description of the prompt.
+  string description = 1;
+
+  // Required. The messages that make up the prompt.
+  repeated PromptMessage messages = 2;
+}

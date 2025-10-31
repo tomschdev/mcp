@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package mcp.tom.v1;
+
+// TextContent represents plain text output.
+message TextContent {
+  // The text content.
+  string text = 1;
+}
+
+// ImageContent represents image data.
+message ImageContent {
+  // Base64-encoded image data.
+  bytes data = 1;
+
+  // MIME type (e.g., "image/png", "image/jpeg").
+  string mime_type = 2;
+}
+
+// AudioContent represents audio data.
+message AudioContent {
+  // Base64-encoded audio data.
+  bytes data = 1;
+
+  // MIME type (e.g., "audio/mpeg", "audio/wav").
+  string mime_type = 2;
+}
+
+// ResourceReference points to an external resource.
+message ResourceReference {
+  // URI of the referenced resource.
+  string uri = 1;
+
+  // Optional. MIME type of the resource.
+  string mime_type = 2;
+
+  // Optional. Additional metadata.
+  map<string, string> metadata = 3;
+}
+
+// EmbeddedResource contains a complete resource object.
+message EmbeddedResource {
+  // URI of the resource.
+  string uri = 1;
+
+  // MIME type of the resource.
+  string mime_type = 2;
+
+  oneof content {
+    // Text content.
+    string text = 3;
+
+    // Binary content.
+    bytes blob = 4;
+  }
+
+  // Optional. Annotations for the resource.
+  map<string, string> annotations = 5;
+}
+
+// StructuredContent contains JSON-formatted data as a string.
+message StructuredContent {
+  // The structured data as a JSON string.
+  string data_json = 1;
+
+  // Optional. JSON Schema as a string validating the data structure.
+  string schema_json = 2;
+}

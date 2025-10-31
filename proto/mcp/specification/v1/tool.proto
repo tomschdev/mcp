@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package mcp.tom.v1;
+
+import "mcp/specification/content.proto";
+
+// Tool represents an executable function exposed to AI models.
+message Tool {
+  // Required. Unique identifier for the tool.
+  string name = 1;
+
+  // Optional. Human-readable display name.
+  string title = 2;
+
+  // Optional. Description of the tool's functionality.
+  string description = 3;
+
+  // Optional. JSON Schema as a string defining the expected input parameters.
+  string input_schema_json = 4;
+
+  // Optional. JSON Schema as a string defining the expected output structure.
+  string output_schema_json = 5;
+}
+
+// ToolAnnotations provides optional metadata about tool behavior.
+message ToolAnnotations {
+  // Optional. Additional behavior hints or flags.
+  map<string, string> metadata = 1;
+}
+
+// ToolContent represents different types of content that a tool can return.
+message ToolContent {
+  oneof content {
+    // Plain text response.
+    TextContent text = 1;
+
+    // Image data response.
+    ImageContent image = 2;
+
+    // Audio data response.
+    AudioContent audio = 3;
+
+    // Reference to an external resource.
+    ResourceReference resource = 4;
+
+    // Embedded resource with full content.
+    EmbeddedResource embedded_resource = 5;
+
+    // Structured JSON data.
+    StructuredContent structured = 6;
+  }
+}
+
+// ListToolsRequest requests the list of available tools.
+message ListToolsRequest {
+  // Optional. Pagination cursor from a previous response.
+  string page_token = 1;
+
+  // Optional. Maximum number of tools to return.
+  int32 page_size = 2;
+}
+
+// ListToolsResponse contains the list of available tools.
+message ListToolsResponse {
+  // The list of tools.
+  repeated Tool tools = 1;
+
+  // Optional. Token to retrieve the next page of results.
+  string next_page_token = 2;
+}
+
+// CallToolRequest invokes a specific tool with arguments.
+message CallToolRequest {
+  // Required. The name of the tool to call.
+  string name = 1;
+
+  // Optional. Arguments as key-value pairs matching the tool's input schema.
+  map<string, string> arguments = 2;
+}
+
+// CallToolResponse contains the result of a tool invocation.
+message CallToolResponse {
+  // The content returned by the tool. May contain multiple items.
+  repeated ToolContent content = 1;
+
+  // Indicates whether the tool execution resulted in an error.
+  bool is_error = 2;
+}

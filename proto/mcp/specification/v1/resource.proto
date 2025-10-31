@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package mcp.tom.v1;
+
+// Resource represents a piece of contextual data that the server provides.
+// Resources are identified by URIs following RFC 3986.
+message Resource {
+  // Required. The URI uniquely identifying this resource (RFC 3986).
+  string uri = 1;
+
+  // Required. A unique identifier for the resource.
+  string name = 2;
+
+  // Optional. Human-readable display name.
+  string title = 3;
+
+  // Optional. Description of what this resource represents.
+  string description = 4;
+
+  // Optional. MIME type of the resource content (e.g., "text/plain", "image/png").
+  string mime_type = 5;
+
+  // Optional. Size of the resource in bytes.
+  optional int64 size = 6;
+}
+
+// ResourceTemplate represents a parameterized resource URI using RFC 6570 URI template syntax.
+message ResourceTemplate {
+  // Required. The URI template following RFC 6570.
+  string uri_template = 1;
+
+  // Required. A unique identifier for the template.
+  string name = 2;
+
+  // Optional. Human-readable display name.
+  string title = 3;
+
+  // Optional. Description of what this template represents.
+  string description = 4;
+
+  // Optional. MIME type of resources created from this template.
+  string mime_type = 5;
+}
+
+// ResourceContent represents the actual content of a resource.
+// Content can be either text-based or binary (blob).
+message ResourceContent {
+  // Required. The URI of this resource.
+  string uri = 1;
+
+  // Optional. MIME type of the content.
+  string mime_type = 2;
+
+  oneof content {
+    // Text-based content.
+    string text = 3;
+
+    // Binary content encoded as base64.
+    bytes blob = 4;
+  }
+}
+
+// ResourceAnnotations provides optional metadata about a resource.
+message ResourceAnnotations {
+  // Optional. Intended audience type for this resource.
+  string audience = 1;
+
+  // Optional. Priority ranking from 0.0 (lowest) to 1.0 (highest).
+  optional float priority = 2;
+
+  // Optional. ISO 8601 timestamp of last modification.
+  string last_modified = 3;
+}
+
+// ListResourcesRequest requests the list of available resources.
+message ListResourcesRequest {
+  // Optional. Pagination cursor from a previous response.
+  string page_token = 1;
+
+  // Optional. Maximum number of resources to return.
+  int32 page_size = 2;
+}
+
+// ListResourcesResponse contains the list of available resources.
+message ListResourcesResponse {
+  // The list of resources.
+  repeated Resource resources = 1;
+
+  // Optional. Token to retrieve the next page of results.
+  string next_page_token = 2;
+}
+
+// ReadResourceRequest requests the content of a specific resource.
+message ReadResourceRequest {
+  // Required. The URI of the resource to read.
+  string uri = 1;
+}
+
+// ReadResourceResponse contains the content of the requested resource.
+message ReadResourceResponse {
+  // The resource contents. May contain multiple content items.
+  repeated ResourceContent contents = 1;
+}

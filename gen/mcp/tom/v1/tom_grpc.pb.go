@@ -18,7 +18,7 @@
 // - protoc             (unknown)
 // source: mcp/tom/v1/tom.proto
 
-package mcp
+package v1
 
 import (
 	context "context"

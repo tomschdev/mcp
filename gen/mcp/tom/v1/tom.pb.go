@@ -21,7 +21,6 @@
 package tomv1
 
 import (
-	_ "github.com/bufbuild/buf-examples/gen/buf/validate"
 	_ "github.com/bufbuild/buf-examples/gen/google/api"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -618,153 +617,12 @@ func (x *ProcessWellKnownTypesResponse) GetMessage() string {
 	return ""
 }
 
-type TestValidationRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// UUID constraint
-	ResourceGroupId string `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId,proto3" json:"resource_group_id,omitempty"`
-	// Email constraint
-	Email string `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
-	// Pattern constraint
-	Username string `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
-	// Length constraints
-	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	// Numeric constraints
-	Age           int32 `protobuf:"varint,5,opt,name=age,proto3" json:"age,omitempty"`
-	Timestamp     int64 `protobuf:"varint,6,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TestValidationRequest) Reset() {
-	*x = TestValidationRequest{}
-	mi := &file_mcp_tom_v1_tom_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TestValidationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TestValidationRequest) ProtoMessage() {}
-
-func (x *TestValidationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mcp_tom_v1_tom_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TestValidationRequest.ProtoReflect.Descriptor instead.
-func (*TestValidationRequest) Descriptor() ([]byte, []int) {
-	return file_mcp_tom_v1_tom_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *TestValidationRequest) GetResourceGroupId() string {
-	if x != nil {
-		return x.ResourceGroupId
-	}
-	return ""
-}
-
-func (x *TestValidationRequest) GetEmail() string {
-	if x != nil {
-		return x.Email
-	}
-	return ""
-}
-
-func (x *TestValidationRequest) GetUsername() string {
-	if x != nil {
-		return x.Username
-	}
-	return ""
-}
-
-func (x *TestValidationRequest) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *TestValidationRequest) GetAge() int32 {
-	if x != nil {
-		return x.Age
-	}
-	return 0
-}
-
-func (x *TestValidationRequest) GetTimestamp() int64 {
-	if x != nil {
-		return x.Timestamp
-	}
-	return 0
-}
-
-type TestValidationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
-	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TestValidationResponse) Reset() {
-	*x = TestValidationResponse{}
-	mi := &file_mcp_tom_v1_tom_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TestValidationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TestValidationResponse) ProtoMessage() {}
-
-func (x *TestValidationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mcp_tom_v1_tom_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TestValidationResponse.ProtoReflect.Descriptor instead.
-func (*TestValidationResponse) Descriptor() ([]byte, []int) {
-	return file_mcp_tom_v1_tom_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *TestValidationResponse) GetSuccess() bool {
-	if x != nil {
-		return x.Success
-	}
-	return false
-}
-
-func (x *TestValidationResponse) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
-
 var File_mcp_tom_v1_tom_proto protoreflect.FileDescriptor
 
 const file_mcp_tom_v1_tom_proto_rawDesc = "" +
 	"\n" +
 	"\x14mcp/tom/v1/tom.proto\x12\n" +
-	"mcp.tom.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19google/protobuf/any.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1bbuf/validate/validate.proto\"\x91\x03\n" +
+	"mcp.tom.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19google/protobuf/any.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x91\x03\n" +
 	"\x11CreateItemRequest\x12\x18\n" +
 	"\x04name\x18\x01 \x01(\tB\x04\xe2A\x01\x02R\x04name\x12%\n" +
 	"\vdescription\x18\x02 \x01(\tH\x01R\vdescription\x88\x01\x01\x12A\n" +
@@ -811,25 +669,13 @@ const file_mcp_tom_v1_tom_proto_rawDesc = "" +
 	"\ttimestamp\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\"S\n" +
 	"\x1dProcessWellKnownTypesResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"\x94\x02\n" +
-	"\x15TestValidationRequest\x127\n" +
-	"\x11resource_group_id\x18\x01 \x01(\tB\v\xbaH\b\xd8\x01\x01r\x03\xb0\x01\x01R\x0fresourceGroupId\x12\x1d\n" +
-	"\x05email\x18\x02 \x01(\tB\a\xbaH\x04r\x02`\x01R\x05email\x12?\n" +
-	"\busername\x18\x03 \x01(\tB#\xbaH r\x1e2\x1c^[a-zA-Z][a-zA-Z0-9_]{2,19}$R\busername\x12\x1d\n" +
-	"\x04name\x18\x04 \x01(\tB\t\xbaH\x06r\x04\x10\x03\x182R\x04name\x12\x1c\n" +
-	"\x03age\x18\x05 \x01(\x05B\n" +
-	"\xbaH\a\x1a\x05\x18\x96\x01(\x00R\x03age\x12%\n" +
-	"\ttimestamp\x18\x06 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\ttimestamp\"L\n" +
-	"\x16TestValidationResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage2\xe4\x02\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage2\x8b\x02\n" +
 	"\n" +
 	"TomService\x12K\n" +
 	"\n" +
 	"CreateItem\x12\x1d.mcp.tom.v1.CreateItemRequest\x1a\x1e.mcp.tom.v1.CreateItemResponse\x12B\n" +
 	"\aGetItem\x12\x1a.mcp.tom.v1.GetItemRequest\x1a\x1b.mcp.tom.v1.GetItemResponse\x12l\n" +
-	"\x15ProcessWellKnownTypes\x12(.mcp.tom.v1.ProcessWellKnownTypesRequest\x1a).mcp.tom.v1.ProcessWellKnownTypesResponse\x12W\n" +
-	"\x0eTestValidation\x12!.mcp.tom.v1.TestValidationRequest\x1a\".mcp.tom.v1.TestValidationResponseB\x9b\x01\n" +
+	"\x15ProcessWellKnownTypes\x12(.mcp.tom.v1.ProcessWellKnownTypesRequest\x1a).mcp.tom.v1.ProcessWellKnownTypesResponseB\x9b\x01\n" +
 	"\x0ecom.mcp.tom.v1B\bTomProtoP\x01Z5github.com/bufbuild/buf-examples/gen/mcp/tom/v1;tomv1\xa2\x02\x03MTX\xaa\x02\n" +
 	"Mcp.Tom.V1\xca\x02\n" +
 	"Mcp\\Tom\\V1\xe2\x02\x16Mcp\\Tom\\V1\\GPBMetadata\xea\x02\fMcp::Tom::V1b\x06proto3"
@@ -846,7 +692,7 @@ func file_mcp_tom_v1_tom_proto_rawDescGZIP() []byte {
 	return file_mcp_tom_v1_tom_proto_rawDescData
 }
 
-var file_mcp_tom_v1_tom_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_mcp_tom_v1_tom_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_mcp_tom_v1_tom_proto_goTypes = []any{
 	(*CreateItemRequest)(nil),             // 0: mcp.tom.v1.CreateItemRequest
 	(*ProductDetails)(nil),                // 1: mcp.tom.v1.ProductDetails
@@ -857,38 +703,34 @@ var file_mcp_tom_v1_tom_proto_goTypes = []any{
 	(*Item)(nil),                          // 6: mcp.tom.v1.Item
 	(*ProcessWellKnownTypesRequest)(nil),  // 7: mcp.tom.v1.ProcessWellKnownTypesRequest
 	(*ProcessWellKnownTypesResponse)(nil), // 8: mcp.tom.v1.ProcessWellKnownTypesResponse
-	(*TestValidationRequest)(nil),         // 9: mcp.tom.v1.TestValidationRequest
-	(*TestValidationResponse)(nil),        // 10: mcp.tom.v1.TestValidationResponse
-	nil,                                   // 11: mcp.tom.v1.CreateItemRequest.LabelsEntry
-	nil,                                   // 12: mcp.tom.v1.Item.LabelsEntry
-	(*timestamppb.Timestamp)(nil),         // 13: google.protobuf.Timestamp
-	(*structpb.Struct)(nil),               // 14: google.protobuf.Struct
-	(*structpb.Value)(nil),                // 15: google.protobuf.Value
-	(*anypb.Any)(nil),                     // 16: google.protobuf.Any
+	nil,                                   // 9: mcp.tom.v1.CreateItemRequest.LabelsEntry
+	nil,                                   // 10: mcp.tom.v1.Item.LabelsEntry
+	(*timestamppb.Timestamp)(nil),         // 11: google.protobuf.Timestamp
+	(*structpb.Struct)(nil),               // 12: google.protobuf.Struct
+	(*structpb.Value)(nil),                // 13: google.protobuf.Value
+	(*anypb.Any)(nil),                     // 14: google.protobuf.Any
 }
 var file_mcp_tom_v1_tom_proto_depIdxs = []int32{
-	11, // 0: mcp.tom.v1.CreateItemRequest.labels:type_name -> mcp.tom.v1.CreateItemRequest.LabelsEntry
+	9,  // 0: mcp.tom.v1.CreateItemRequest.labels:type_name -> mcp.tom.v1.CreateItemRequest.LabelsEntry
 	1,  // 1: mcp.tom.v1.CreateItemRequest.product:type_name -> mcp.tom.v1.ProductDetails
 	2,  // 2: mcp.tom.v1.CreateItemRequest.service:type_name -> mcp.tom.v1.ServiceDetails
-	13, // 3: mcp.tom.v1.CreateItemResponse.created_at:type_name -> google.protobuf.Timestamp
+	11, // 3: mcp.tom.v1.CreateItemResponse.created_at:type_name -> google.protobuf.Timestamp
 	6,  // 4: mcp.tom.v1.GetItemResponse.item:type_name -> mcp.tom.v1.Item
-	12, // 5: mcp.tom.v1.Item.labels:type_name -> mcp.tom.v1.Item.LabelsEntry
-	13, // 6: mcp.tom.v1.Item.created_at:type_name -> google.protobuf.Timestamp
-	13, // 7: mcp.tom.v1.Item.updated_at:type_name -> google.protobuf.Timestamp
-	14, // 8: mcp.tom.v1.ProcessWellKnownTypesRequest.metadata:type_name -> google.protobuf.Struct
-	15, // 9: mcp.tom.v1.ProcessWellKnownTypesRequest.config:type_name -> google.protobuf.Value
-	16, // 10: mcp.tom.v1.ProcessWellKnownTypesRequest.payload:type_name -> google.protobuf.Any
-	13, // 11: mcp.tom.v1.ProcessWellKnownTypesRequest.timestamp:type_name -> google.protobuf.Timestamp
+	10, // 5: mcp.tom.v1.Item.labels:type_name -> mcp.tom.v1.Item.LabelsEntry
+	11, // 6: mcp.tom.v1.Item.created_at:type_name -> google.protobuf.Timestamp
+	11, // 7: mcp.tom.v1.Item.updated_at:type_name -> google.protobuf.Timestamp
+	12, // 8: mcp.tom.v1.ProcessWellKnownTypesRequest.metadata:type_name -> google.protobuf.Struct
+	13, // 9: mcp.tom.v1.ProcessWellKnownTypesRequest.config:type_name -> google.protobuf.Value
+	14, // 10: mcp.tom.v1.ProcessWellKnownTypesRequest.payload:type_name -> google.protobuf.Any
+	11, // 11: mcp.tom.v1.ProcessWellKnownTypesRequest.timestamp:type_name -> google.protobuf.Timestamp
 	0,  // 12: mcp.tom.v1.TomService.CreateItem:input_type -> mcp.tom.v1.CreateItemRequest
 	4,  // 13: mcp.tom.v1.TomService.GetItem:input_type -> mcp.tom.v1.GetItemRequest
 	7,  // 14: mcp.tom.v1.TomService.ProcessWellKnownTypes:input_type -> mcp.tom.v1.ProcessWellKnownTypesRequest
-	9,  // 15: mcp.tom.v1.TomService.TestValidation:input_type -> mcp.tom.v1.TestValidationRequest
-	3,  // 16: mcp.tom.v1.TomService.CreateItem:output_type -> mcp.tom.v1.CreateItemResponse
-	5,  // 17: mcp.tom.v1.TomService.GetItem:output_type -> mcp.tom.v1.GetItemResponse
-	8,  // 18: mcp.tom.v1.TomService.ProcessWellKnownTypes:output_type -> mcp.tom.v1.ProcessWellKnownTypesResponse
-	10, // 19: mcp.tom.v1.TomService.TestValidation:output_type -> mcp.tom.v1.TestValidationResponse
-	16, // [16:20] is the sub-list for method output_type
-	12, // [12:16] is the sub-list for method input_type
+	3,  // 15: mcp.tom.v1.TomService.CreateItem:output_type -> mcp.tom.v1.CreateItemResponse
+	5,  // 16: mcp.tom.v1.TomService.GetItem:output_type -> mcp.tom.v1.GetItemResponse
+	8,  // 17: mcp.tom.v1.TomService.ProcessWellKnownTypes:output_type -> mcp.tom.v1.ProcessWellKnownTypesResponse
+	15, // [15:18] is the sub-list for method output_type
+	12, // [12:15] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name
 	12, // [12:12] is the sub-list for extension extendee
 	0,  // [0:12] is the sub-list for field type_name
@@ -909,7 +751,7 @@ func file_mcp_tom_v1_tom_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_mcp_tom_v1_tom_proto_rawDesc), len(file_mcp_tom_v1_tom_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   13,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -18,10 +18,9 @@
 // 	protoc        (unknown)
 // source: mcp/tom/v1/tom.proto
 
-package tomv1
+package mcp
 
 import (
-	_ "github.com/bufbuild/buf-examples/gen/google/api"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
@@ -622,9 +621,9 @@ var File_mcp_tom_v1_tom_proto protoreflect.FileDescriptor
 const file_mcp_tom_v1_tom_proto_rawDesc = "" +
 	"\n" +
 	"\x14mcp/tom/v1/tom.proto\x12\n" +
-	"mcp.tom.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19google/protobuf/any.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x91\x03\n" +
-	"\x11CreateItemRequest\x12\x18\n" +
-	"\x04name\x18\x01 \x01(\tB\x04\xe2A\x01\x02R\x04name\x12%\n" +
+	"mcp.tom.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x19google/protobuf/any.proto\"\x8b\x03\n" +
+	"\x11CreateItemRequest\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12%\n" +
 	"\vdescription\x18\x02 \x01(\tH\x01R\vdescription\x88\x01\x01\x12A\n" +
 	"\x06labels\x18\x03 \x03(\v2).mcp.tom.v1.CreateItemRequest.LabelsEntryR\x06labels\x12\x12\n" +
 	"\x04tags\x18\x04 \x03(\tR\x04tags\x126\n" +
@@ -675,8 +674,8 @@ const file_mcp_tom_v1_tom_proto_rawDesc = "" +
 	"\n" +
 	"CreateItem\x12\x1d.mcp.tom.v1.CreateItemRequest\x1a\x1e.mcp.tom.v1.CreateItemResponse\x12B\n" +
 	"\aGetItem\x12\x1a.mcp.tom.v1.GetItemRequest\x1a\x1b.mcp.tom.v1.GetItemResponse\x12l\n" +
-	"\x15ProcessWellKnownTypes\x12(.mcp.tom.v1.ProcessWellKnownTypesRequest\x1a).mcp.tom.v1.ProcessWellKnownTypesResponseB\x9b\x01\n" +
-	"\x0ecom.mcp.tom.v1B\bTomProtoP\x01Z5github.com/bufbuild/buf-examples/gen/mcp/tom/v1;tomv1\xa2\x02\x03MTX\xaa\x02\n" +
+	"\x15ProcessWellKnownTypes\x12(.mcp.tom.v1.ProcessWellKnownTypesRequest\x1a).mcp.tom.v1.ProcessWellKnownTypesResponseB~\n" +
+	"\x0ecom.mcp.tom.v1B\bTomProtoP\x01Z\x18github.com/tomschdev/mcp\xa2\x02\x03MTX\xaa\x02\n" +
 	"Mcp.Tom.V1\xca\x02\n" +
 	"Mcp\\Tom\\V1\xe2\x02\x16Mcp\\Tom\\V1\\GPBMetadata\xea\x02\fMcp::Tom::V1b\x06proto3"
 

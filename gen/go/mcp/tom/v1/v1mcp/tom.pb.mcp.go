@@ -4,7 +4,7 @@
 package v1mcp
 
 import (
-	v1 "github.com/tomschdev/mcp/tom/v1"
+	v1 "github.com/tomschdev/mcp/gen/go/mcp/tom/v1"
 )
 
 import (

@@ -21,8 +21,8 @@ import (
 
 	"github.com/mark3labs/mcp-go/server"
 	"github.com/redpanda-data/protoc-gen-go-mcp/pkg/runtime"
-	pb "github.com/tomschdev/mcp/gen/mcp/tom/v1"
-	mcpPb "github.com/tomschdev/mcp/gen/mcp/tom/v1/v1mcp"
+	pb "github.com/tomschdev/mcp/gen/go/mcp/tom/v1"
+	mcpPb "github.com/tomschdev/mcp/gen/go/mcp/tom/v1/v1mcp"
 )
 
 // Ensure our interface and the official gRPC interface are grpcClient

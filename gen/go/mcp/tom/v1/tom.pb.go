@@ -674,8 +674,8 @@ const file_mcp_tom_v1_tom_proto_rawDesc = "" +
 	"\n" +
 	"CreateItem\x12\x1d.mcp.tom.v1.CreateItemRequest\x1a\x1e.mcp.tom.v1.CreateItemResponse\x12B\n" +
 	"\aGetItem\x12\x1a.mcp.tom.v1.GetItemRequest\x1a\x1b.mcp.tom.v1.GetItemResponse\x12l\n" +
-	"\x15ProcessWellKnownTypes\x12(.mcp.tom.v1.ProcessWellKnownTypesRequest\x1a).mcp.tom.v1.ProcessWellKnownTypesResponseB\x85\x01\n" +
-	"\x0ecom.mcp.tom.v1B\bTomProtoP\x01Z\x1fgithub.com/tomschdev/mcp/tom/v1\xa2\x02\x03MTX\xaa\x02\n" +
+	"\x15ProcessWellKnownTypes\x12(.mcp.tom.v1.ProcessWellKnownTypesRequest\x1a).mcp.tom.v1.ProcessWellKnownTypesResponseB\x90\x01\n" +
+	"\x0ecom.mcp.tom.v1B\bTomProtoP\x01Z*github.com/tomschdev/mcp/gen/go/mcp/tom/v1\xa2\x02\x03MTX\xaa\x02\n" +
 	"Mcp.Tom.V1\xca\x02\n" +
 	"Mcp\\Tom\\V1\xe2\x02\x16Mcp\\Tom\\V1\\GPBMetadata\xea\x02\fMcp::Tom::V1b\x06proto3"
 

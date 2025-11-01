@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mcp.tom.v1;
+
+import "mcp/specification/resource.proto";
+import "mcp/specification/tool.proto";
+import "mcp/specification/prompt.proto";
+
+// TomService implements the Model Context Protocol (MCP) server.
+// It provides access to prompts, resources, and tools for AI model interaction.
+service McpService {
+  // Prompts Operations
+  // Lists available prompts that can be used for templated workflows.
+  rpc ListPrompts(ListPromptsRequest) returns (ListPromptsResponse);
+
+  // Gets a specific prompt with provided argument values.
+  rpc GetPrompt(GetPromptRequest) returns (GetPromptResponse);
+
+  // Resources Operations
+  // Lists available resources that provide contextual data.
+  rpc ListResources(ListResourcesRequest) returns (ListResourcesResponse);
+
+  // Reads the content of a specific resource by URI.
+  rpc ReadResource(ReadResourceRequest) returns (ReadResourceResponse);
+
+  // Tools Operations
+  // Lists available tools that can be invoked.
+  rpc ListTools(ListToolsRequest) returns (ListToolsResponse);
+
+  // Calls a specific tool with provided arguments.
+  rpc CallTool(CallToolRequest) returns (CallToolResponse);
+}
